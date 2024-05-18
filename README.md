@@ -1,3 +1,29 @@
+# 大宮祭2024 - 星空に浮かぶストーリー
+
+GPT-4oおよびDALL-E 3を用いた作品です。
+キーワードをもとに、文章を生成し、画像を生成します。
+
+## 初回起動
+
+```bash
+cp .env.temp .env.local
+```
+
+`.env.local`を編集し、Open AIのAPIキーを入力してください。
+
+その後は以下で起動できます。
+
+```bash
+$ npm install
+$ npm run dev
+```
+
+## 2回目以降の起動
+
+```bash
+$ npm run dev
+```
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
