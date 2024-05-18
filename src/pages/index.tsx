@@ -8,7 +8,7 @@ import "@fontsource/kaisei-opti";
 const positions = [
   { x: 10, y: -5, size: 20, rotate: -80 },
   { x: -10, y: 30, size: 30, rotate: 20 },
-  { x: 15, y: 80, size: 20, rotate: -10 },
+  { x: 15, y: 80, size: 40, rotate: -10 },
   { x: 70, y: 65, size: 30, rotate: -30 },
   { x: 75, y: 25, size: 20, rotate: 80 },
 ];
@@ -17,7 +17,7 @@ export default function Home() {
   const [loadingImage, setLoadingImage] = useState<boolean>(false);
   const [loadingChat, setLoadingChat] = useState<boolean>(false);
   const [isLoadedImgBlob, setIsLoadedImgBlob] = useState<boolean>(false);
-  const [url, setUrl] = useState<string>("");
+  const [url, setUrl] = useState<string | null>(null);
   const [prompt, setPrompt] = useState<string>("");
   const [chatResult, setChatResult] = useState<string[]>([]);
   const [ready, setReady] = useState<boolean>(false);
@@ -41,11 +41,13 @@ export default function Home() {
     console.log("prompt", prompt);
     if (!prompt) return;
     onModalClose();
-    setUrl("");
+    setUrl(null);
     setPrompt("");
     setChatResult([]);
     setIndexOfOpacityRandomImages(-1);
     setIndexOfOpacityText(-1);
+    setIsLoadedImgBlob(false);
+    setReady(false);
 
     setLoadingImage(true);
     setLoadingChat(true);
@@ -97,7 +99,7 @@ export default function Home() {
           setReady(true);
           setTimeout(() => {
             onModalOpen();
-          }, 1000 * 60);
+          }, 1000 * 45);
         }
       }, 2000);
     }, 2500 * newChatArray.length);
