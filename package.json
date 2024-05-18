@@ -1,0 +1,40 @@
+{
+  "name": "web-app-seiza-gpt",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@chakra-ui/react": "^2.8.1",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@fontsource/kaisei-opti": "^5.0.13",
+    "@fontsource/zen-kaku-gothic-new": "^5.0.19",
+    "@types/p5": "^1.7.6",
+    "axios": "^1.6.8",
+    "jsqr": "^1.4.0",
+    "next": "14.2.3",
+    "openai": "^4.47.1",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-hook-form": "^7.46.2",
+    "react-icons": "^4.12.0",
+    "react-p5": "^1.4.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18.3.2",
+    "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^6.7.3",
+    "@typescript-eslint/parser": "^6.7.3",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.3",
+    "eslint-config-prettier": "^9.0.0",
+    "prettier": "^3.0.3",
+    "typescript": "^5"
+  }
+}
