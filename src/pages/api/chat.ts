@@ -14,8 +14,10 @@ const handler = async (
   }
 
   const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY,
+    apiKey: process.env.NEXT_OPENAI_API_KEY,
   });
+
+  console.log(process.env.NEXT_OPENAI_API_KEY);
 
   try {
     const completion = await openai.chat.completions.create({
