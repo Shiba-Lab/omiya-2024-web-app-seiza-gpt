@@ -10,7 +10,7 @@ const positions = [
   { x: 10, y: -5, size: 20, rotate: -80 },
   { x: -10, y: 30, size: 30, rotate: 20 },
   { x: 10, y: 85, size: 30, rotate: -10 },
-  { x: 70, y: 65, size: 30, rotate: -30 },
+  { x: 70, y: 55, size: 30, rotate: -30 },
   { x: 75, y: 25, size: 20, rotate: 80 },
 ];
 
