@@ -106,7 +106,7 @@ export const InputModal = (props: InputModalProps) => {
   return (
     <Modal isOpen={isModalOpen} onClose={onModalClose} size="2xl">
       <ModalOverlay />
-      <ModalContent backgroundColor="#171923" px={4} pt={8}>
+      <ModalContent backgroundColor="#171923" px={4} pt={2}>
         <ModalHeader>
           <Heading
             textAlign="center"

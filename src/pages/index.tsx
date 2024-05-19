@@ -4,6 +4,7 @@ import { P5Canvas } from "../components/P5Canvas";
 import { InputModal } from "../components/InputModal";
 import { CiMenuBurger } from "react-icons/ci";
 import "@fontsource/kaisei-opti";
+import "@fontsource/zen-kaku-gothic-new/300.css";
 
 const positions = [
   { x: 10, y: -5, size: 20, rotate: -80 },
@@ -22,6 +23,7 @@ export default function Home() {
   const [chatResult, setChatResult] = useState<string[]>([]);
   const [ready, setReady] = useState<boolean>(false);
   const [loadingPrompt, setLoadingPrompt] = useState<boolean>(false);
+  const [lastPrompt, setLastPrompt] = useState<string>("");
 
   const [indexOfOpacityRandomImages, setIndexOfOpacityRandomImages] =
     useState<number>(-1);
@@ -59,7 +61,7 @@ export default function Home() {
           setLoadingPrompt(false);
         }, 4000);
       }
-    }, 3000);
+    }, 4000);
 
     setLoadingImage(true);
     setLoadingChat(true);
@@ -109,6 +111,7 @@ export default function Home() {
         if (i > 4) {
           clearInterval(interval);
           setReady(true);
+          setLastPrompt(prompt);
           setPrompt("");
           setTimeout(() => {
             onModalOpen();
@@ -196,7 +199,7 @@ export default function Home() {
                 opacity={loadingChat ? 0 : 1}
                 lineHeight={2}
               >
-                {prompt}
+                {prompt}座
               </Text>
             </Box>
           )}
@@ -239,7 +242,7 @@ export default function Home() {
           position="absolute"
           top="30vh"
           right="calc(50vw - 30vh)"
-          height="70vh"
+          height="100vh"
           width="70vh"
           opacity={loadingImage ? 0 : 0.9}
           style={{ transition: "opacity 5s", mixBlendMode: "lighten" }}
@@ -256,6 +259,25 @@ export default function Home() {
             />
           )}
         </Box>
+        <Text
+          color="#fff"
+          opacity={loadingImage ? 0 : 0.6}
+          fontWeight={300}
+          fontFamily="'Zen Kaku Gothic New', sans-serif;"
+          fontSize={28}
+          display="block"
+          width="fit-content"
+          zIndex={100}
+          position="absolute"
+          bottom="10vh"
+          left="60vw"
+          transform="rotate(-15deg)"
+        >
+          {lastPrompt}座
+        </Text>
+      </Box>
+      <Box position="absolute" bottom={3} right={1} p={4}>
+        <img src="/logo.png" alt="logo" style={{ opacity: 0.4 }} width={80} />
       </Box>
     </Box>
   );
