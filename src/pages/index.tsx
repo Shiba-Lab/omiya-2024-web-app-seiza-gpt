@@ -111,7 +111,7 @@ export default function Home() {
         if (i > 4) {
           clearInterval(interval);
           setReady(true);
-          setLastPrompt(prompt);
+          setLastPrompt(prompt + "座");
           setPrompt("");
           setTimeout(() => {
             onModalOpen();
@@ -274,7 +274,7 @@ export default function Home() {
           left="60vw"
           transform="rotate(-15deg)"
         >
-          {lastPrompt}座
+          {lastPrompt}
         </Text>
       </Box>
       <Box position="absolute" bottom={3} right={1} p={4}>
