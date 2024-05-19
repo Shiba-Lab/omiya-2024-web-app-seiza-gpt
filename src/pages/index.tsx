@@ -1,5 +1,5 @@
 import { Box, Text, useDisclosure, IconButton } from "@chakra-ui/react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { P5Canvas } from "../components/P5Canvas";
 import { InputModal } from "../components/InputModal";
 import { CiMenuBurger } from "react-icons/ci";
@@ -21,11 +21,14 @@ export default function Home() {
   const [prompt, setPrompt] = useState<string>("");
   const [chatResult, setChatResult] = useState<string[]>([]);
   const [ready, setReady] = useState<boolean>(false);
+  const [loadingPrompt, setLoadingPrompt] = useState<boolean>(false);
 
   const [indexOfOpacityRandomImages, setIndexOfOpacityRandomImages] =
     useState<number>(-1);
   const [indexOfOpacityText, setIndexOfOpacityText] = useState<number>(0);
   const [randomImages, setRandomImages] = useState<string[]>([]);
+
+  const textRef = useRef<HTMLParagraphElement>(null);
 
   const {
     isOpen: isModalOpen,
@@ -42,12 +45,21 @@ export default function Home() {
     if (!prompt) return;
     onModalClose();
     setUrl(null);
-    setPrompt("");
     setChatResult([]);
     setIndexOfOpacityRandomImages(-1);
     setIndexOfOpacityText(-1);
     setIsLoadedImgBlob(false);
     setReady(false);
+    setLoadingPrompt(true);
+    setTimeout(() => {
+      if (textRef.current) {
+        textRef.current.style.fontSize = "80px";
+        textRef.current.style.opacity = "0";
+        setTimeout(() => {
+          setLoadingPrompt(false);
+        }, 4000);
+      }
+    }, 3000);
 
     setLoadingImage(true);
     setLoadingChat(true);
@@ -97,9 +109,10 @@ export default function Home() {
         if (i > 4) {
           clearInterval(interval);
           setReady(true);
+          setPrompt("");
           setTimeout(() => {
             onModalOpen();
-          }, 1000 * 45);
+          }, 1000 * 30);
         }
       }, 2000);
     }, 2500 * newChatArray.length);
@@ -163,6 +176,30 @@ export default function Home() {
           zIndex={10}
           textAlign="center"
         >
+          {loadingPrompt && prompt && (
+            <Box
+              sx={{
+                display: "block",
+                position: "absolute",
+                top: "50%",
+                left: "0",
+                width: "100%",
+                textAlign: "center",
+              }}
+            >
+              <Text
+                ref={textRef}
+                color="#fff"
+                fontFamily="'Kaisei Opti', serif;"
+                transition="all 1500ms"
+                fontSize={60}
+                opacity={loadingChat ? 0 : 1}
+                lineHeight={2}
+              >
+                {prompt}
+              </Text>
+            </Box>
+          )}
           {chatResult.map((sentence) => {
             return (
               <Text
