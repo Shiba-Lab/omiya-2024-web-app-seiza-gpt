@@ -5,6 +5,7 @@ import { InputModal } from "../components/InputModal";
 import { CiMenuBurger } from "react-icons/ci";
 import "@fontsource/kaisei-opti";
 import "@fontsource/zen-kaku-gothic-new/300.css";
+import { sendMessageToExtension } from "../util/sendMessageToExtension";
 
 const positions = [
   { x: 10, y: -5, size: 20, rotate: -80 },
@@ -113,6 +114,13 @@ export default function Home() {
           setReady(true);
           setLastPrompt(prompt + "座");
           setPrompt("");
+          // 6秒後にスクショ保存
+
+          setTimeout(() => {
+            sendMessageToExtension({ screenshot: true });
+          }, 1000 * 6);
+
+          // 30秒後に自動的にモーダルを開く
           setTimeout(() => {
             onModalOpen();
           }, 1000 * 30);
