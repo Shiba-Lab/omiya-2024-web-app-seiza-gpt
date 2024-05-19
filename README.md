@@ -26,6 +26,21 @@ $ npm run dev
 $ npm run dev
 ```
 
+##　ログの自動保存
+
+[スクリーンショット自動撮影Chrome拡張機能](https://github.com/Shiba-Lab/seiza-gpt-screenshot-extension)をインストールすると、生成された画面を自動でスクショして保存できます。
+
+#### 使い方
+
+1. Google Chromeで chrome://extensions/ を開く
+1. 右上のトグルでデベロッパー モードを有効にする
+1. 「パッケージ化されていない拡張機能を読み込む」→「seiza-gpt-screenshot-extension」フォルダを選択
+1. インストールされた「星座GPTスクショ保存」のIDをコピー (例: `aajnpgichbndclmpfoefmhoeehipikmo`のような文字列)
+1. このプロジェクトの `.env.local` に `NEXT_PUBLIC_CHROME_EXTENSION_ID` として追加
+1. 星座の生成が終わると、自動でスクリーンショットがダウンロードされます
+
+# Original README
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
