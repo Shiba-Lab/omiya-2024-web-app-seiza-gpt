@@ -22,7 +22,8 @@ const handler = async (
     const imageResponse = await openai.images.generate({
       model: "dall-e-3",
       //  古い絵本に載っているような、「${prompt}」のイラストを生成してください。
-      prompt: `白い線、黒い背景、抽象化された「${prompt}」の簡素な星座、シンプル、背景なし、抽象化、1本線、棒人間`,
+      // prompt: `白い線、黒い背景、抽象化された「${prompt}」の簡素な星座、シンプル、背景なし、抽象化、1本線、棒人間`,
+      prompt: `「${prompt}」のイラストを生成してください。`,
       n: 1,
       size: "1024x1024", // 1024x1024、1792x1024、1024x1792
     });
@@ -32,6 +33,10 @@ const handler = async (
     return res.status(200).json({ imageUrl });
   } catch (error) {
     console.error("ERROR OCURED", error);
+    // @ts-ignore
+    if (error?.error?.code === "content_policy_violation") {
+      return res.status(400).json({ error: "Content policy violation" });
+    }
     return res
       .status(500)
       .json({ error: "An error occurred while proxying the request" });
