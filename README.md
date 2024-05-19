@@ -26,7 +26,7 @@ $ npm run dev
 $ npm run dev
 ```
 
-##　ログの自動保存
+## ログの自動保存
 
 [スクリーンショット自動撮影Chrome拡張機能](https://github.com/Shiba-Lab/seiza-gpt-screenshot-extension)をインストールすると、生成された画面を自動でスクショして保存できます。
 
