@@ -22,8 +22,7 @@ const handler = async (
     const imageResponse = await openai.images.generate({
       model: "dall-e-3",
       //  古い絵本に載っているような、「${prompt}」のイラストを生成してください。
-      // prompt: `白い線、黒い背景、抽象化された「${prompt}」の簡素な星座、シンプル、背景なし、抽象化、1本線、棒人間`,
-      prompt: `「${prompt}」のイラストを生成してください。`,
+      prompt: `白い線、黒い背景、抽象化された「${prompt}」の簡素な星座、シンプル、背景なし、抽象化、1本線、棒人間`,
       n: 1,
       size: "1024x1024", // 1024x1024、1792x1024、1024x1792
     });
