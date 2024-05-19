@@ -118,7 +118,7 @@ export default function Home() {
 
           setTimeout(() => {
             sendMessageToExtension({ screenshot: true });
-          }, 1000 * 6);
+          }, 1000 * 6.5);
 
           // 30秒後に自動的にモーダルを開く
           setTimeout(() => {
