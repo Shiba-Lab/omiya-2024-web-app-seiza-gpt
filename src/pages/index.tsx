@@ -262,6 +262,7 @@ export default function Home() {
         <Text
           color="#fff"
           opacity={loadingImage ? 0 : 0.6}
+          transition="opacity 5s 3s"
           fontWeight={300}
           fontFamily="'Zen Kaku Gothic New', sans-serif;"
           fontSize={28}
