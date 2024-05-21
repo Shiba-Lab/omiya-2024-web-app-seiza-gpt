@@ -116,20 +116,20 @@ export default function Home() {
           setPrompt("");
 
           // 6.2秒後に表示チェック
-          setTimeout(() => {
-            console.log("url", url);
-            console.log("loadingImage", loadingImage);
-            console.log("lastPrompt", lastPrompt);
-            if (!url) {
-              setLoadingImage(false);
-              setUrl("/copyright.webp");
-              setLastPrompt("著作権エラー座");
-            } else if (loadingImage) {
-              setLoadingImage(false);
-              setUrl("/copyright.webp");
-              setLastPrompt("生成エラー座");
-            }
-          }, 1000 * 6.2);
+          // setTimeout(() => {
+          //   console.log("url", url);
+          //   console.log("loadingImage", loadingImage);
+          //   console.log("lastPrompt", lastPrompt);
+          //   if (!url) {
+          //     setLoadingImage(false);
+          //     setUrl("/copyright.webp");
+          //     setLastPrompt("著作権エラー座");
+          //   } else if (loadingImage) {
+          //     setLoadingImage(false);
+          //     setUrl("/copyright.webp");
+          //     setLastPrompt("生成エラー座");
+          //   }
+          // }, 1000 * 6.2);
 
           // 6.5秒後にスクショ保存
           setTimeout(() => {
