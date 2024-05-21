@@ -138,6 +138,8 @@ export default function Home() {
 
           // 30秒後に自動的にモーダルを開く
           setTimeout(() => {
+            setLoadingImage(false);
+            setLoadingChat(false);
             onModalOpen();
           }, 1000 * 30);
         }
